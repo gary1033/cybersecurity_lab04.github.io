@@ -1,0 +1,43 @@
+.App {
+  text-align: center;
+}
+
+.App-header {
+  background-color: #333;
+  height: 50px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 10%;
+  color: white;
+}
+
+nav a {
+  color: white;
+  margin: 0 10px;
+  text-decoration: none;
+}
+
+nav a:hover {
+  text-decoration: underline;
+}
+
+.login-signup button {
+  margin: 0 5px;
+}
+
+.App-main {
+
+  text-align: left;
+  background-color: rgb(170, 169, 169);
+}
+
+/* 聊天室按鈕的樣式 */
+#chat {
+  cursor: pointer;
+}
+.intro {
+  position:relative;
+  top:-250px;
+  left:500px;
+}
