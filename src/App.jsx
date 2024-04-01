@@ -2,11 +2,20 @@ import React, { useState, useEffect } from 'react';
 import './App.css';
 import ha from './assets/ha.gif';
 import ChatRoom from './ChatRoom.jsx';
+import Register from './Register.jsx';
+
 
 function App() {
   const [currentPage, setCurrentPage] = useState('about');
   const [visitors, setVisitors] = useState(0);
-
+  const userdata = [
+    { "id": 1, "name": "Eric" },
+    { "id": 2, "name": "Eric2" },
+    { "id": 3, "name": "Eric3" },
+    { "id": 4, "name": "Ben" },
+    { "id": 5, "name": "Ben" },
+    { "id": 6, "name": "..." }
+  ];
   useEffect(() => {
     // 假設的訪客人數增加，這裡可以替換為從後端服務獲取真實數據
     setVisitors(v => v + 1);
@@ -39,6 +48,16 @@ function App() {
           </div>
         );
         break;
+      case 'user':
+        content = (
+          <div>
+            <pre>{JSON.stringify(userdata, null, 2)}</pre>
+          </div>
+        );
+        break;
+      case 'register':
+        content = <Register />;
+        break;
       default:
         content = (
           <div className="home-section">
@@ -55,7 +74,8 @@ function App() {
         <nav>
           <a href="#home" onClick={() => setCurrentPage('home')}>首頁</a>
           <a href="#about" onClick={() => setCurrentPage('about')}>關於</a>
-          <a href="#chat" onClick={() => setCurrentPage('chat')}>聊天室</a>
+          <a href="#user" onClick={() => setCurrentPage('user')}>User</a>
+          <a href="#register" onClick={() => setCurrentPage('register')}>註冊</a>
           <span className="visitors-count">訪客人數：{visitors}</span>
         </nav>
         <div className="login-signup">
